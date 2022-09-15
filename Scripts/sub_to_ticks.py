@@ -7,6 +7,7 @@ from std_msgs.msg import Int32, Float64MultiArray
 # last_time = rospy.Time.now()
 
 # r = rospy.Rate(1.0)
+unit = rospy.get_param("/unit")
 
 
 import math
@@ -74,7 +75,7 @@ class listener():
 
         # rospy.Subscriber("/right_tick", Int32, self.callback_r)
         # rospy.Subscriber("/left_tick", Int32, self.callback_l)
-        rospy.Subscriber("/velocities", Float64MultiArray, self.callback_v)
+        rospy.Subscriber(unit + "/velocities", Float64MultiArray, self.callback_v)
 
 
 
@@ -99,3 +100,5 @@ class listener():
 if __name__ == '__main__':
     my_sub = listener()
     my_sub.loop()
+
+    
