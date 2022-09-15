@@ -21,6 +21,8 @@ x=0
 radius=0.055
 width=0.13
 
+unit = rospy.get_param("/unit")
+
 
 BP.set_motor_power(BP.PORT_C, BP.MOTOR_FLOAT)                          # float motor D
 BP.set_motor_power(BP.PORT_B, BP.MOTOR_FLOAT)
@@ -56,7 +58,7 @@ def listener():
 	# run simultaneously.
 
 	rospy.init_node('listener', anonymous=True)
-	rospy.Subscriber("/cmd_vel", Twist, callback)
+	rospy.Subscriber(unit + "/cmd_vel", Twist, callback)
  
 	# spin() simply keeps python from exiting until this node is stopped
 	rospy.spin()
