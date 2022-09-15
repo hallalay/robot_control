@@ -1,0 +1,6 @@
+<launch>
+    <node name="robot_control" pkg="robot_control" type="teleop_twist_keyboard.py" output="screen"></node>
+    <node name="move_base" pkg="robot_control" type="move_base.py" output="screen"></node>
+    <node name="tick_publisher" pkg="robot_control" type="tickpublisher.py" output="screen"></node>
+    <node name="odom" pkg="robot_control" type="sub_to_ticks.py" output="screen"></node>
+</launch>
